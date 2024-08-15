@@ -1,8 +1,10 @@
 ﻿using MachineVision.Services;
+using MachineVision.TemplateMatch;
 using MachineVision.ViewModels;
 using MachineVision.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Regions;
 using System.Windows;
 
@@ -48,6 +50,17 @@ namespace MachineVision
             services.RegisterForNavigation<MainView, MainViewModel>();
             services.RegisterForNavigation<DashboardView, DashboradViewModel>();
             services.RegisterSingleton<INavigationMenuService, NavigationMenuService>();
+        }
+
+        /// <summary>
+        /// 添加模块
+        /// </summary>
+        /// <param name="moduleCatalog"></param>
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<TemplateMatchModule>();
+
+            base.ConfigureModuleCatalog(moduleCatalog);
         }
     }
 

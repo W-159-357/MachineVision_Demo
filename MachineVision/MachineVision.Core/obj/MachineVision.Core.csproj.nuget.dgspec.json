@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {}
+    "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {}
   },
   "projects": {
-    "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {
+    "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
+        "projectUniqueName": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
         "projectName": "MachineVision.Core",
-        "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
+        "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
         "packagesPath": "C:\\Users\\WXJ\\.nuget\\packages\\",
-        "outputPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\obj\\",
+        "outputPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

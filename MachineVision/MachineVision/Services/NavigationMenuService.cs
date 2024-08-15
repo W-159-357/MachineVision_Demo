@@ -26,7 +26,7 @@ namespace MachineVision.Services
             {
                 new NavigationItem("","模板匹配","",new ObservableCollection<NavigationItem>()
                 {
-                    new NavigationItem("ShapeCirclePlus", "轮廓匹配", ""),
+                    new NavigationItem("ShapeCirclePlus", "轮廓匹配", "DrawShapeView"),
                     new NavigationItem("ShapeOutline", "形状匹配", ""),
                     new NavigationItem("Clouds", "相似性匹配", ""),
                     new NavigationItem("ShapeOvalPlus", "形变匹配", ""),

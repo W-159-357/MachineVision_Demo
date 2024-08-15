@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DFF7k/V7yb4=",
+  "dgSpecHash": "z3iqG103Ja8=",
   "success": true,
-  "projectFilePath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
+  "projectFilePath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WXJ\\.nuget\\packages\\dryioc.dll\\4.7.7\\dryioc.dll.4.7.7.nupkg.sha512",
     "C:\\Users\\WXJ\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

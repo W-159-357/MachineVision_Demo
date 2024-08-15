@@ -18,7 +18,7 @@
           }
         }
       },
-      "MaterialDesignColors/2.1.4": {
+      "MaterialDesignColors/3.1.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/MaterialDesignColors.dll": {
@@ -67,6 +67,28 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Win32.SystemEvents/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
@@ -137,6 +159,25 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "System.Drawing.Common/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "8.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
       },
       "System.IO/4.3.0": {
         "type": "package",
@@ -267,6 +308,46 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "MachineVision.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MaterialDesignColors": "3.1.0",
+          "MaterialDesignThemes": "4.9.0",
+          "Prism.DryIoc": "8.1.97",
+          "System.Drawing.Common": "8.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MachineVision.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MachineVision.Shared.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MachineVision.TemplateMatch/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MachineVision.Core": "1.0.0",
+          "MachineVision.Shared": "1.0.0",
+          "MaterialDesignColors": "3.1.0",
+          "MaterialDesignThemes": "4.9.0",
+          "Prism.DryIoc": "8.1.97",
+          "System.Drawing.Common": "8.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MachineVision.TemplateMatch.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MachineVision.TemplateMatch.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -302,23 +383,22 @@
         "readme.txt"
       ]
     },
-    "MaterialDesignColors/2.1.4": {
-      "sha512": "C4Oy+qkjMoMPoZKyqYdCnIYtK8c0OSIHmNP73Vgc69NjiUG093xTkE7W/Ks54cTDS7fmWOtUHfwISTVTtb/YKg==",
+    "MaterialDesignColors/3.1.0": {
+      "sha512": "J2mpZBWx0wArrMCK8E0Cqfsy+Wh3iRDVnznp5/84B1KcnTKI9u9Pyt2zN0oSQGsa6NhvwdUErbhE3jJd6iRTxw==",
       "type": "package",
-      "path": "materialdesigncolors/2.1.4",
+      "path": "materialdesigncolors/3.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
         "images/MaterialDesignColors.Icon.png",
         "lib/net462/MaterialDesignColors.dll",
         "lib/net462/MaterialDesignColors.pdb",
         "lib/net6.0/MaterialDesignColors.dll",
         "lib/net6.0/MaterialDesignColors.pdb",
-        "lib/net7.0/MaterialDesignColors.dll",
-        "lib/net7.0/MaterialDesignColors.pdb",
-        "lib/netcoreapp3.1/MaterialDesignColors.dll",
-        "lib/netcoreapp3.1/MaterialDesignColors.pdb",
-        "materialdesigncolors.2.1.4.nupkg.sha512",
+        "lib/net8.0/MaterialDesignColors.dll",
+        "lib/net8.0/MaterialDesignColors.pdb",
+        "materialdesigncolors.3.1.0.nupkg.sha512",
         "materialdesigncolors.nuspec"
       ]
     },
@@ -395,6 +475,41 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "Microsoft.Win32.SystemEvents/8.0.0": {
+      "sha512": "9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Win32.SystemEvents.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
+        "lib/net462/Microsoft.Win32.SystemEvents.dll",
+        "lib/net462/Microsoft.Win32.SystemEvents.xml",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/net7.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net7.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/net8.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net8.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
@@ -498,6 +613,46 @@
         "prism.wpf.8.1.97.nupkg.sha512",
         "prism.wpf.nuspec",
         "readme.txt"
+      ]
+    },
+    "System.Drawing.Common/8.0.0": {
+      "sha512": "JkbHJjtI/dWc5dfmEdJlbe3VwgZqCkZRtfuWFh5GOv0f+gGCfBtzMpIVkmdkj2AObO9y+oiOi81UGwH3aBYuqA==",
+      "type": "package",
+      "path": "system.drawing.common/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Drawing.Common.dll",
+        "lib/net462/System.Drawing.Common.pdb",
+        "lib/net462/System.Drawing.Common.xml",
+        "lib/net6.0/System.Drawing.Common.dll",
+        "lib/net6.0/System.Drawing.Common.pdb",
+        "lib/net6.0/System.Drawing.Common.xml",
+        "lib/net7.0/System.Drawing.Common.dll",
+        "lib/net7.0/System.Drawing.Common.pdb",
+        "lib/net7.0/System.Drawing.Common.xml",
+        "lib/net8.0/System.Drawing.Common.dll",
+        "lib/net8.0/System.Drawing.Common.pdb",
+        "lib/net8.0/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.pdb",
+        "lib/netstandard2.0/System.Drawing.Common.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "system.drawing.common.8.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.IO/4.3.0": {
@@ -1041,12 +1196,24 @@
       "type": "project",
       "path": "../MachineVision.Core/MachineVision.Core.csproj",
       "msbuildProject": "../MachineVision.Core/MachineVision.Core.csproj"
+    },
+    "MachineVision.Shared/1.0.0": {
+      "type": "project",
+      "path": "../MachineVision.Shared/MachineVision.Shared.csproj",
+      "msbuildProject": "../MachineVision.Shared/MachineVision.Shared.csproj"
+    },
+    "MachineVision.TemplateMatch/1.0.0": {
+      "type": "project",
+      "path": "../MachineVision.TemplateMatch/MachineVision.TemplateMatch.csproj",
+      "msbuildProject": "../MachineVision.TemplateMatch/MachineVision.TemplateMatch.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "MachineVision.Core >= 1.0.0",
-      "MaterialDesignColors >= 2.1.4",
+      "MachineVision.Shared >= 1.0.0",
+      "MachineVision.TemplateMatch >= 1.0.0",
+      "MaterialDesignColors >= 3.1.0",
       "MaterialDesignThemes >= 4.9.0",
       "Prism.DryIoc >= 8.1.97"
     ]
@@ -1058,11 +1225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision\\MachineVision.csproj",
+      "projectUniqueName": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision\\MachineVision.csproj",
       "projectName": "MachineVision",
-      "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision\\MachineVision.csproj",
+      "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision\\MachineVision.csproj",
       "packagesPath": "C:\\Users\\WXJ\\.nuget\\packages\\",
-      "outputPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision\\obj\\",
+      "outputPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1084,8 +1251,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {
-              "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj"
+            "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj": {
+              "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Core\\MachineVision.Core.csproj"
+            },
+            "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Shared\\MachineVision.Shared.csproj": {
+              "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.Shared\\MachineVision.Shared.csproj"
+            },
+            "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.TemplateMatch\\MachineVision.TemplateMatch.csproj": {
+              "projectPath": "D:\\src\\CSharp_Learn\\CSharp-Project\\MachineVision_Demo\\MachineVision\\MachineVision.TemplateMatch\\MachineVision.TemplateMatch.csproj"
             }
           }
         }
@@ -1107,7 +1280,7 @@
         "dependencies": {
           "MaterialDesignColors": {
             "target": "Package",
-            "version": "[2.1.4, )"
+            "version": "[3.1.0, )"
           },
           "MaterialDesignThemes": {
             "target": "Package",

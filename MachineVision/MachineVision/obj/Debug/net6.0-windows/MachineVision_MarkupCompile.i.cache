@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\src\CSharp_Learn\CSharp-Project\MachineVision\MachineVision\obj\Debug\net6.0-windows\
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\
 MachineVision
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\src\CSharp_Learn\CSharp-Project\MachineVision\MachineVision\App.xaml
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\App.xaml
 22141121645
 
 121998877291
-202-2124499478
+206-924862705
 Views\DashboardView.xaml;Views\MainView.xaml;
 
 False
