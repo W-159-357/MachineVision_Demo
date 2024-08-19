@@ -47,6 +47,7 @@ namespace MachineVision
         /// <param name="services"></param>
         protected override void RegisterTypes(IContainerRegistry services)
         {
+            services.RegisterForNavigation<SettingView, SettingViewModel>();
             services.RegisterForNavigation<MainView, MainViewModel>();
             services.RegisterForNavigation<DashboardView, DashboradViewModel>();
             services.RegisterSingleton<INavigationMenuService, NavigationMenuService>();

@@ -15,20 +15,32 @@ namespace MachineVision.Models
     {
         public NavigationItem(
             string icon,
+            string key,
             string name,
             string pageName,
             ObservableCollection<NavigationItem> items = null)
         {
             this.Icon = icon;
+            this.Key = key;
             this.Name = name;
             this.PageName = pageName;
             this.Items = items;
         }
 
+        private string key;
         private string name;
         private string icon;
         private string pageName;
         private ObservableCollection<NavigationItem> items;
+
+        /// <summary>
+        /// 索引关键词
+        /// </summary>
+        public string Key
+        {
+            get { return key; }
+            set { key = value; RaisePropertyChanged(); }
+        }
 
         /// <summary>
         /// 菜单名称
@@ -36,7 +48,7 @@ namespace MachineVision.Models
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -45,7 +57,7 @@ namespace MachineVision.Models
         public string Icon
         {
             get { return icon; }
-            set { icon = value; }
+            set { icon = value; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -54,7 +66,7 @@ namespace MachineVision.Models
         public string PageName
         {
             get { return pageName; }
-            set { pageName = value; }
+            set { pageName = value; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -63,7 +75,7 @@ namespace MachineVision.Models
         public ObservableCollection<NavigationItem> Items
         {
             get { return items; }
-            set { items = value; }
+            set { items = value; RaisePropertyChanged(); }
         }
     }
 }

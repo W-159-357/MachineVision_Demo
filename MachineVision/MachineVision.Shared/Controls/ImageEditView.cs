@@ -1,5 +1,7 @@
 ﻿using HalconDotNet;
+using MachineVision.Shared.Extensions;
 using System.Collections.ObjectModel;
+using System.Data.Common;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
@@ -85,6 +87,13 @@ namespace MachineVision.Shared.Controls
                 btnCircle.Click += BtnCircle_Click;
             }
 
+            // 绘制区域的响应
+            if (GetTemplateChild("PART_Region") is Button btnRegion)
+            {
+                btnRegion.Click += BtnRegion_Click;
+            }
+
+            // 清空按钮的响应
             if (GetTemplateChild("PART_Clear") is Button btnClear)
             {
                 btnClear.Click += (s, e) =>
@@ -101,96 +110,87 @@ namespace MachineVision.Shared.Controls
 
         #region 图形绘制的具体实现
         // 绘制矩形的具体实现，并将坐标存入数组
-        private async void BtnRect_Click(object sender, RoutedEventArgs e)
+        private void BtnRect_Click(object sender, RoutedEventArgs e)
         {
-            HTuple row1 = new HTuple();
-            HTuple column1 = new HTuple();
-            HTuple row2 = new HTuple();
-            HTuple column2 = new HTuple();
-            HObject drawObj = null;
-            txtMsg.Text = "按鼠标左键绘制，右键结束。";
-
-            // 另外开辟一个线程进行绘制操作
-            await Task.Run(() =>
-            {
-                HOperatorSet.SetColor(hWindow, "blue");
-                HOperatorSet.DrawRectangle1(hWindow, out row1, out column1, out row2, out column2);
-                HOperatorSet.GenRectangle1(out drawObj, row1, column1, row2, column2);
-            });
-
-            if (drawObj == null) return;
-
-            // 将绘制的图像的两个坐标存入数组
-            DrawingObjectList.Add(new DrawingObjectInfo()
-            {
-                ShapeType = E_ShapeType.Rectangle,
-                HTuples = new HTuple[] { row1, column1, row2, column2 }
-            });
-            // 清空文本，并显示对象
-            txtMsg.Text = string.Empty;
-            HOperatorSet.DispObj(drawObj, hWindow);
+            DrawShape(E_ShapeType.Rectangle, new HTuple(), new HTuple(), new HTuple(), new HTuple());
         }
         // 绘制椭圆的具体实现
-        private async void BtnEllipse_Click(object sender, RoutedEventArgs e)
+        private void BtnEllipse_Click(object sender, RoutedEventArgs e)
         {
-            HTuple row = new HTuple();
-            HTuple column = new HTuple();
-            HTuple phi = new HTuple();
-            HTuple radius1 = new HTuple();
-            HTuple radius2 = new HTuple();
-            HObject drawObj = null;
-            txtMsg.Text = "按鼠标左键绘制，右键结束。";
-
-            // 另外开辟一个线程进行绘制操作
-            await Task.Run(() =>
-            {
-                HOperatorSet.SetColor(hWindow, "yellow");
-                HOperatorSet.DrawEllipse(hWindow, out row, out column, out phi, out radius1, out radius2);
-                HOperatorSet.GenEllipse(out drawObj, row, column, phi, radius1, radius2);
-            });
-
-            if (drawObj == null) return;
-
-            // 将绘制的图像的两个坐标存入数组
-            DrawingObjectList.Add(new DrawingObjectInfo()
-            {
-                ShapeType = E_ShapeType.Ellipse,
-                HTuples = new HTuple[] { row, column, phi, radius1, radius2 }
-            });
-            // 清空文本，并显示对象
-            txtMsg.Text = string.Empty;
-            HOperatorSet.DispObj(drawObj, hWindow);
+            DrawShape(E_ShapeType.Ellipse, new HTuple(), new HTuple(), new HTuple(), new HTuple(), new HTuple());
         }
         // 绘制圆的具体实现
-        private async void BtnCircle_Click(object sender, RoutedEventArgs e)
+        private void BtnCircle_Click(object sender, RoutedEventArgs e)
         {
-            HTuple row = new HTuple();
-            HTuple column = new HTuple();
-            HTuple radius = new HTuple();
-            HObject drawObj = null;
+            DrawShape(E_ShapeType.Circle, new HTuple(), new HTuple(), new HTuple());
+        }
+        // 绘制区域的具体实现
+        private void BtnRegion_Click(object sender, RoutedEventArgs e)
+        {
+            DrawShape(E_ShapeType.Region);
+        }
+
+        /// <summary>
+        /// 图像绘制和生成的具体实现（绘制不同形状）
+        /// </summary>
+        /// <param name="shapeType"></param>
+        /// <param name="hTuples"></param>
+        private async void DrawShape(E_ShapeType shapeType, params HTuple[] hTuples)
+        {
             txtMsg.Text = "按鼠标左键绘制，右键结束。";
+            HObject drawObj;
+            HOperatorSet.GenEmptyObj(out drawObj);
+
+            hSmart.HZoomContent = HSmartWindowControlWPF.ZoomContent.Off;
 
             // 另外开辟一个线程进行绘制操作
             await Task.Run(() =>
             {
-                HOperatorSet.SetColor(hWindow, "red");
-                HOperatorSet.DrawCircle(hWindow, out row, out column, out radius);
-                HOperatorSet.GenCircle(out drawObj, row, column, radius);
+                switch (shapeType)
+                {
+                    case E_ShapeType.Rectangle:
+                        {
+                            HOperatorSet.SetColor(hWindow, "blue");
+                            HOperatorSet.DrawRectangle1(hWindow, out hTuples[0], out hTuples[1], out hTuples[2], out hTuples[3]);
+                            drawObj = hTuples.GenRectangle();
+                            break;
+                        }
+                    case E_ShapeType.Ellipse:
+                        {
+                            HOperatorSet.SetColor(hWindow, "yellow");
+                            HOperatorSet.DrawEllipse(hWindow, out hTuples[0], out hTuples[1], out hTuples[2], out hTuples[3], out hTuples[4]);
+                            drawObj = hTuples.GenEllipse();
+                            break;
+                        }
+                    case E_ShapeType.Circle:
+                        {
+                            HOperatorSet.SetColor(hWindow, "red");
+                            HOperatorSet.DrawCircle(hWindow, out hTuples[0], out hTuples[1], out hTuples[2]);
+                            drawObj = hTuples.GenCircle();
+                            break;
+                        }
+                    case E_ShapeType.Region:
+                        {
+                            // 绘制自定义区域
+                            HOperatorSet.SetColor(hWindow, "red");
+                            HOperatorSet.DrawRegion(out drawObj, hWindow);
+                            break;
+                        }
+                }
             });
 
-            if (drawObj == null) return;
-
-            // 将绘制的图像的两个坐标存入数组
-            DrawingObjectList.Add(new DrawingObjectInfo()
+            if (drawObj != null)
             {
-                ShapeType = E_ShapeType.Circle,
-                HTuples = new HTuple[] { row, column, radius }
-            });
-            // 清空文本，并显示对象
-            txtMsg.Text = string.Empty;
-            HOperatorSet.DispObj(drawObj, hWindow);
+                DrawingObjectList.Add(new DrawingObjectInfo() { ShapeType = shapeType, HTuples = hTuples, Hobject = drawObj });
+                HOperatorSet.DispObj(drawObj, hWindow);
+            }
+
+            txtMsg.Text = String.Empty;
+            hSmart.HZoomContent = HSmartWindowControlWPF.ZoomContent.WheelForwardZoomsIn; 
         }
         #endregion
+
+
 
         // 图片加载成功后需要在内部进行初始化
         private void HSmart_Loaded(object sender, RoutedEventArgs e)

@@ -76,3 +76,7 @@ D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVisio
 D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\MachineVision.pdb
 D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\MachineVision.genruntimeconfig.cache
 D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\ref\MachineVision.dll
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\Assets\en-US.baml
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\Assets\zh-CN.baml
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\Views\SettingView.g.cs
+D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\obj\Debug\net6.0-windows\Views\SettingView.baml

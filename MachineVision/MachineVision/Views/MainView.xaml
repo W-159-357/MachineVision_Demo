@@ -33,7 +33,7 @@
                     Margin="5,15,15,15"
                     FontSize="22"
                     FontWeight="Bold"
-                    Text="WPF/HALCON 机器视觉算法平台" />
+                    Text="{DynamicResource ApplicationName}" />
 
                 <!--  第二列  -->
                 <ListBox

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\src\CSharp_Learn\CSharp-Project\MachineVision_Demo\MachineVision\MachineVision\App.xaml
-22141121645
+563217734
 
-121998877291
+17482544385
 206-924862705
-Views\DashboardView.xaml;Views\MainView.xaml;
+Assets\en-US.xaml;Assets\zh-CN.xaml;Views\DashboardView.xaml;Views\MainView.xaml;Views\SettingView.xaml;
 
-False
+True
 

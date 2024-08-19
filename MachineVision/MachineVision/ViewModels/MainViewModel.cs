@@ -1,18 +1,22 @@
 ﻿using MachineVision.Core;
 using MachineVision.Models;
 using MachineVision.Services;
+using MachineVision.Shared.Events;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
 
 namespace MachineVision.ViewModels
 {
     public class MainViewModel : NavigationViewModel
     {
-        public MainViewModel(IRegionManager manager, INavigationMenuService navigationService)
+        public MainViewModel(IRegionManager manager, IEventAggregator aggregator, INavigationMenuService navigationService)
         {
             this.manager = manager;
             NavigationService = navigationService;
             NavigateCommand = new DelegateCommand<NavigationItem>(Navigate);
+
+            aggregator.GetEvent<LanguageEventBus>().Subscribe(LanguageChanged);
         }
 
         private bool isTopDrawerOpen;
@@ -30,6 +34,7 @@ namespace MachineVision.ViewModels
         public INavigationMenuService NavigationService { get; }
 
         public DelegateCommand<NavigationItem> NavigateCommand { get; private set; }
+
         private void Navigate(NavigationItem item)
         {
             if (item == null) return;
@@ -39,6 +44,8 @@ namespace MachineVision.ViewModels
                 return;
             }
             IsTopDrawerOpen = false;
+
+            NavigatePage(item.PageName);
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
@@ -57,6 +64,15 @@ namespace MachineVision.ViewModels
                     System.Diagnostics.Debug.WriteLine(back.Error.Message);
                 }
             });
+        }
+
+        /// <summary>
+        /// 语言更改事件
+        /// </summary>
+        /// <param name="status"></param>
+        private void LanguageChanged(bool status)
+        {
+            NavigationService.RefreshMenus();
         }
     }
 }
